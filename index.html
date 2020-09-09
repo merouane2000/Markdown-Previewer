@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="index.js"></script>
+<script>
+
+function updatePreview (){
+    let previewElement=document.getElementById("preview");
+    let editorValue=document.getElementById("editor").value;
+    let markUp =  marked(editorValue);
+    previewElement.innerHTML= markUp;
+    }
+    
+    function setDefault(){
+let defaultText=`\
+# H1
+## H2
+### H3
+
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+<dl>
+<dt>Definition list</dt>
+<dd>Is something people use sometimes.</dd>
+
+<dt>Markdown in HTML</dt>
+<dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+\`this an example of inline code\`
+
+\`\`\`
+function exampleOf(){
+  return multiLineCodeBlock;
+
+}
+\`\`\`
+
+- this 
+- an 
+- example
+- of 
+- list
+- item
+
+> This is an example of block quote 
+
+![usful programmer](https://cdn.iconscout.com/icon/free/png-512/react-1-282599.png)
+**this is an example of Bolded Text**`;
+        
+       let editorField=document.getElementById("editor");
+       let previewElement=document.getElementById("preview");
+       editorField.value= defaultText;
+       previewElement.innerHTML=marked(defaultText)
+
+    }
+</script>
+    <title>Markdown Preveiwer by Merouane</title>
+  </head>
+  <body onload="setDefault()" class="bg-primary"> 
+      <div class="container-fluid"</div>
+          <div class="row">
+              <div class="col text-center text-white bg-primary my-3">
+                  <h1>Markdown Preveiwer by Merouane</h1>
+              </div>
+        </div>
+          <div class="row">
+          <div class="col-6 bg-info d-flex flex-colunm">
+              <h2 class="text-white text-center my-3">Editor :</h2>
+              <div class="form-group flex-grow-1 d-flex flex-colunm">
+              <textarea id="editor" onkeyup="updatePreview ()" class="form-control flex-grow-1"></textarea>
+            </div>
+          </div>
+          <div class="col-6 bg-success">
+            <h2 class="text-white text-center my-3">Previewer :</h2>
+            <div id="preview" ></div>
+          </div>
+    </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   <script src=" https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
